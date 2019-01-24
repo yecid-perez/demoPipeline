@@ -1,10 +1,15 @@
 pipeline {
-    agent { docker { image 'node:6.3' } }
+    agent any
     stages {
         stage('build') {
             steps {
-                bat 'npm --version'
+                sh 'docker build -t DemoJenkins .'
             }
+		stage('deploy') {
+            steps {
+                sh 'docker run -d -p 4000:80 DemoJenkins:latest .'
+            }
+        }
         }
     }
 }
