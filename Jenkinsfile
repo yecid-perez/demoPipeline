@@ -3,12 +3,12 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'docker build -t demo-jenkins .'
+                sh 'docker build -t demo .'
             }
 		}
 		stage('deploy') {
             steps {
-                sh 'docker run -d -p 4000:80 demo-jenkins:latest .'
+                sh 'docker run -d -p 4040:80 demo:latest'
             }
         }
     }
