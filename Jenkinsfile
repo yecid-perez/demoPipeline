@@ -8,7 +8,7 @@ pipeline {
 		}
 		stage('deploy') {
             steps {
-                sh 'docker run -d -p 4040:80 demo:latest'
+                sh 'docker run -d -p 4041:80 demo:latest'
             }
         }
     }
