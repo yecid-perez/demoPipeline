@@ -8,7 +8,7 @@ pipeline {
 		}
 		stage('Unit Test') {
             steps {
-                sh 'ng test --watch=false'
+				sh ('.node_modules/.bin/ng test --watch=false')
             }
 		}
 		stage('Deploy') {
