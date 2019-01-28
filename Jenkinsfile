@@ -21,10 +21,10 @@ pipeline {
                 sh 'ng test --watch=false'
             }
 		}
-		stage('Clean') {
+		/*stage('Clean') {
             steps {
                 sh 'docker ps -q | % { docker stop $_ }'
             }
-		}
+		}*/
     }
 }
