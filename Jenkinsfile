@@ -8,7 +8,7 @@ pipeline {
 		}
 		stage('Unit Test') {
             steps {
-				sh ('ng test --watch=false')
+				bat ('ng test --watch=false')
             }
 		}
 		stage('Deploy') {
@@ -18,7 +18,7 @@ pipeline {
         }
 		stage('E2E') {
             steps {
-                sh 'ng test --watch=false'
+                bat 'ng test --watch=false'
             }
 		}
 		/*stage('Clean') {
