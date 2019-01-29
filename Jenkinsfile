@@ -1,14 +1,20 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
+	
+        stage('Dependencies') {
+            steps {
+                sh 'npm install'
+            }
+		}
+		stage('Build') {
             steps {
                 sh 'docker build -t demo .'
             }
 		}
 		stage('Unit Test') {
             steps {
-				sh ('ng test --watch=false')
+				sh ('node_modules/.bin/ng test --browsers ChromeHeadless --watch=false')
             }
 		}
 		stage('Deploy') {
@@ -18,7 +24,7 @@ pipeline {
         }
 		stage('E2E') {
             steps {
-                bat 'ng test --watch=false'
+                bat 'node_modules/.bin/ng test --browsers ChromeHeadless --watch=false'
             }
 		}
 		/*stage('Clean') {
