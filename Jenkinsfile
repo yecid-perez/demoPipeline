@@ -19,7 +19,7 @@ pipeline {
 		}
 		stage('Deploy') {
             steps {
-                sh 'docker run -d -p 4044:80 demo:latest'
+                sh 'docker run -d -p 4045:80 demo:latest'
             }
         }
 		stage('E2E') {
@@ -30,7 +30,7 @@ pipeline {
 		stage('Clean') {
             steps {
                 sh 'docker stop $(docker ps -a -q)'
-                sh 'docker stop $(docker ps -a -q)'
+                sh 'docker rm $(docker ps -a -q)'
             }
 		}
     }
