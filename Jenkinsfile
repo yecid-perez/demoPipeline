@@ -8,7 +8,7 @@ pipeline {
 		}
 		stage('Unit Test') {
             steps {
-				bat ('ng test --watch=false')
+				sh ('ng test --watch=false')
             }
 		}
 		stage('Deploy') {
