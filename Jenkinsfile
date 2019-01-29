@@ -29,8 +29,8 @@ pipeline {
 		}
 		stage('Clean') {
             steps {
-                sh 'docker ps -q | % { docker stop $_ }'
-                sh 'docker ps -a -q | % { docker rm $_ }'
+                sh 'docker stop $(docker ps -a -q)'
+                sh 'docker stop $(docker ps -a -q)'
             }
 		}
     }
