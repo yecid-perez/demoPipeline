@@ -27,10 +27,11 @@ pipeline {
                 bat 'node_modules/.bin/ng test --browsers ChromeHeadless --watch=false'
             }
 		}
-		/*stage('Clean') {
+		stage('Clean') {
             steps {
                 sh 'docker ps -q | % { docker stop $_ }'
+                sh 'docker ps -a -q | % { docker rm $_ }'
             }
-		}*/
+		}
     }
 }
