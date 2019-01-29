@@ -19,7 +19,7 @@ pipeline {
 		}
 		stage('Deploy') {
             steps {
-                sh 'docker run -d --name pipeline-demo -p 4047:80 demo:latest'
+                sh 'docker run -d --name pipeline-demo -p 4048:80 demo:latest'
             }
         }
 		stage('E2E') {
